@@ -15,8 +15,13 @@ export default function ResultsNav({
   };
 
   const getVids = () => {
-    navigate("/results/videos");
-    return getResults(`/search/q=${searchTerm} videos`);
+    navigate("/videos");
+    return getResults(`/search/q=${searchTerm} videos&num=30`);
+  };
+
+  const getImages = () => {
+    navigate("/images");
+    return getResults(`/images/q=${searchTerm}&num=30`);
   };
 
   return (
@@ -27,7 +32,9 @@ export default function ResultsNav({
       <NaviLink to="/videos" onClick={getVids}>
         VIDEOS
       </NaviLink>
-      <NaviLink to="/results/images">IMAGES</NaviLink>
+      <NaviLink to="/images" onClick={getImages}>
+        IMAGES
+      </NaviLink>
     </Navigation>
   );
 }

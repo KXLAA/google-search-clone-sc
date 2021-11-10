@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Loading from "./components/utilities/Loading";
 import ResultsVideos from "./components/results/resultsItems/ResultsVideos";
 import ResultsAll from "./components/results/resultsItems/ResultsAll";
+import ResultsImages from "./components/results/resultsItems/ResultsImages";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -69,6 +70,17 @@ function App() {
             path="/videos"
             element={
               <ResultsVideos
+                searchTerm={searchTerm}
+                searchResults={results}
+                getResults={getResults}
+              />
+            }
+          />
+
+          <Route
+            path="/images"
+            element={
+              <ResultsImages
                 searchTerm={searchTerm}
                 searchResults={results}
                 getResults={getResults}
