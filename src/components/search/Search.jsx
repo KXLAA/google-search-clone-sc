@@ -19,7 +19,6 @@ export default function Search({
   const getSearch = (e) => {
     e.preventDefault();
     navigate("/results");
-    setSearchTerm("");
     return getResults(`/search/q=${searchTerm}&num=30`);
   };
 

@@ -32,7 +32,6 @@ function App() {
     });
     const data = await response.json();
     setResults(data);
-    console.log(results.results);
     setIsLoading(false);
   };
 
@@ -60,9 +59,12 @@ function App() {
             path="/results"
             element={
               <ResultsAll
-                searchResults={results}
                 searchTerm={searchTerm}
+                handleChange={handleChange}
                 getResults={getResults}
+                isLoading={isLoading}
+                setSearchTerm={setSearchTerm}
+                searchResults={results}
               />
             }
           />

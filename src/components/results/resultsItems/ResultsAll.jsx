@@ -9,12 +9,23 @@ import {
 import ResultsSearch from "../resultsHeader/ResultsSearch";
 import ResultsNav from "../resultsHeader/ResultsNav";
 
-export default function ResultsAll({ searchResults, searchTerm, getResults }) {
+export default function ResultsAll({
+  searchResults,
+  searchTerm,
+  getResults,
+  handleChange,
+  setSearchTerm,
+}) {
   const { results } = searchResults;
-  console.log(results);
   return (
     <>
-      <ResultsSearch />
+      <ResultsSearch
+        searchTerm={searchTerm}
+        searchResults={searchResults}
+        getResults={getResults}
+        handleChange={handleChange}
+        setSearchTerm={setSearchTerm}
+      />
       <ResultsNav
         searchTerm={searchTerm}
         searchResults={searchResults}
