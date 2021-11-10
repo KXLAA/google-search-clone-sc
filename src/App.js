@@ -1,10 +1,10 @@
 import { MainLayout } from "./components/layout/styles/Layout.styled";
 import Search from "./components/search/Search";
-import Results from "./components/results/Results";
 import { Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Loading from "./components/utilities/Loading";
 import ResultsVideos from "./components/results/resultsItems/ResultsVideos";
+import ResultsAll from "./components/results/resultsItems/ResultsAll";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,9 +55,9 @@ function App() {
           />
 
           <Route
-            path="/results/*"
+            path="/results"
             element={
-              <Results
+              <ResultsAll
                 searchResults={results}
                 searchTerm={searchTerm}
                 getResults={getResults}

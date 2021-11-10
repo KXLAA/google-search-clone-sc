@@ -1,24 +1,38 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import ResultsSearch from "../resultsHeader/ResultsSearch";
+import ResultsNav from "../resultsHeader/ResultsNav";
+import { ResultsVideoLayout } from "./styles/ResultsVideos.styled";
 
-export default function ResultsVideos({ searchResults }) {
+export default function ResultsVideos({
+  searchResults,
+  searchTerm,
+  getResults,
+}) {
   const { results } = searchResults;
   console.log(results);
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <ResultsSearch />
+      <ResultsNav
+        searchTerm={searchTerm}
+        searchResults={searchResults}
+        getResults={getResults}
+      />
+
+      <ResultsVideoLayout>
         {results?.map((video, index) => (
-          <div key={index}>
+          <div key={video.title}>
             <ReactPlayer
               url={video.additional_links?.[0].href}
               controls
-              width="344px"
-              height="200px"
+              width="430px"
+              height="250px"
             />
           </div>
         ))}
-      </div>
+      </ResultsVideoLayout>
     </>
   );
 }

@@ -13,7 +13,7 @@ export default function Search({ searchTerm, handleChange, getResults }) {
 
   const getSearch = (e) => {
     e.preventDefault();
-    navigate("/results/all");
+    navigate("/results");
     return getResults(`/search/q=${searchTerm}&num=30`);
   };
 

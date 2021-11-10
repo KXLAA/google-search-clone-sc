@@ -10,7 +10,8 @@ export default function ResultsNav({
 }) {
   const navigate = useNavigate();
   const getAll = () => {
-    navigate("/results/all");
+    navigate("/results");
+    return getResults(`/search/q=${searchTerm}&num=30`);
   };
 
   const getVids = () => {
@@ -20,13 +21,12 @@ export default function ResultsNav({
 
   return (
     <Navigation>
-      <NaviLink to="/results/all" onClick={getAll}>
+      <NaviLink to="/results" onClick={getAll}>
         ALL
       </NaviLink>
-      <NaviLink to="/results/videos" onClick={getVids}>
+      <NaviLink to="/videos" onClick={getVids}>
         VIDEOS
       </NaviLink>
-      <NaviLink to="/results/news">NEWS</NaviLink>
       <NaviLink to="/results/images">IMAGES</NaviLink>
     </Navigation>
   );
