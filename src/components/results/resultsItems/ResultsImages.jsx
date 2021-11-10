@@ -9,7 +9,6 @@ export default function ResultsImages({
   getResults,
 }) {
   const { image_results } = searchResults;
-  console.log(image_results);
 
   return (
     <>

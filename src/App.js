@@ -51,6 +51,7 @@ function App() {
                 getResults={getResults}
                 isLoading={isLoading}
                 results={results}
+                setSearchTerm={setSearchTerm}
               />
             }
           />

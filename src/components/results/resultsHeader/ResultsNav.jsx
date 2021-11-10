@@ -2,12 +2,7 @@ import React from "react";
 import { Navigation, NaviLink } from "./styles/ResultsHeader.styled";
 import { useNavigate } from "react-router-dom";
 
-export default function ResultsNav({
-  results,
-  searchTerm,
-  searchResults,
-  getResults,
-}) {
+export default function ResultsNav({ searchTerm, getResults }) {
   const navigate = useNavigate();
   const getAll = () => {
     navigate("/results");

@@ -8,12 +8,18 @@ import {
 } from "./styles/Search.styled";
 import { useNavigate } from "react-router-dom";
 
-export default function Search({ searchTerm, handleChange, getResults }) {
+export default function Search({
+  searchTerm,
+  handleChange,
+  getResults,
+  setSearchTerm,
+}) {
   const navigate = useNavigate();
 
   const getSearch = (e) => {
     e.preventDefault();
     navigate("/results");
+    setSearchTerm("");
     return getResults(`/search/q=${searchTerm}&num=30`);
   };
 

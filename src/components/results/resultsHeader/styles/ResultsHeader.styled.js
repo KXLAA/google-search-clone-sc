@@ -11,6 +11,7 @@ export const Logo = styled.h1`
   font-size: 2rem;
   font-weight: 900;
   margin-right: 2rem;
+  cursor: pointer;
 `;
 
 export const SearchInput = styled.input`
@@ -44,5 +45,8 @@ export const NaviLink = styled(Link)`
   cursor: pointer;
   &:hover {
     color: grey;
+  }
+  &:active {
+    color: blue;
   }
 `;
