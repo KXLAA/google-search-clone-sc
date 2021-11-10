@@ -1,10 +1,11 @@
 import React from "react";
 import Loader from "react-loader-spinner";
+import { MainLayout } from "../layout/styles/Layout.styled";
 
 export default function Loading() {
   return (
-    <div className="flex justify-center items-center">
+    <MainLayout>
       <Loader type="Rings" color="#00BFFF" height={550} width={80} />
-    </div>
+    </MainLayout>
   );
 }

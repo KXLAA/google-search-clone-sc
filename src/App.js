@@ -3,6 +3,8 @@ import Search from "./components/search/Search";
 import Results from "./components/results/Results";
 import { Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
+import Loading from "./components/utilities/Loading";
+import ResultsVideos from "./components/results/resultsItems/ResultsVideos";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,28 +31,52 @@ function App() {
     });
     const data = await response.json();
     setResults(data);
-    console.log(results);
+    console.log(results.results);
     setIsLoading(false);
   };
 
   return (
     <MainLayout>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Search
-              searchTerm={searchTerm}
-              handleChange={handleChange}
-              getResults={getResults}
-              isLoading={isLoading}
-              results={results}
-            />
-          }
-        />
-        <Route path="/search" element={<Search />} />
-        <Route path="/results/*" element={<Results />} />
-      </Routes>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Search
+                searchTerm={searchTerm}
+                handleChange={handleChange}
+                getResults={getResults}
+                isLoading={isLoading}
+                results={results}
+              />
+            }
+          />
+
+          <Route
+            path="/results/*"
+            element={
+              <Results
+                searchResults={results}
+                searchTerm={searchTerm}
+                getResults={getResults}
+              />
+            }
+          />
+
+          <Route
+            path="/videos"
+            element={
+              <ResultsVideos
+                searchTerm={searchTerm}
+                searchResults={results}
+                getResults={getResults}
+              />
+            }
+          />
+        </Routes>
+      )}
     </MainLayout>
   );
 }

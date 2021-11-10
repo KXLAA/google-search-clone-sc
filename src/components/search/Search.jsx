@@ -6,25 +6,19 @@ import {
   ButtonContainer,
   Logo,
 } from "./styles/Search.styled";
-import { useNavigate, useLocation } from "react-router-dom";
-import Loading from "../utilities/Loading";
+import { useNavigate } from "react-router-dom";
 
-export default function Search({
-  searchTerm,
-  handleChange,
-  getResults,
-  isLoading,
-  results,
-}) {
+export default function Search({ searchTerm, handleChange, getResults }) {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const handleRoute = () => {
-    navigate("/results");
+  const getSearch = (e) => {
+    e.preventDefault();
+    navigate("/results/all");
+    return getResults(`/search/q=${searchTerm}&num=30`);
   };
 
   return (
-    <SearchContainer>
+    <SearchContainer onSubmit={getSearch}>
       <Logo>GUNGLE</Logo>
       <SearchInput
         type="text"
@@ -33,12 +27,8 @@ export default function Search({
         onChange={handleChange}
       />
       <ButtonContainer>
-        <SearchButton type="submit" onClick={handleRoute}>
-          SEARCH
-        </SearchButton>
-        <SearchButton type="submit" onClick={handleRoute}>
-          RANDOM
-        </SearchButton>
+        <SearchButton type="submit">SEARCH</SearchButton>
+        <SearchButton type="submit">RANDOM</SearchButton>
       </ButtonContainer>
     </SearchContainer>
   );
