@@ -3,11 +3,11 @@ A project using the Google Api from rapid API, data is fetched on click and resu
 
 Styling is done using styled components. 
 
-You can view the project live here: [GUNGLE](gungle-w-sc.netlify.app)
+You can view the project live here: [GUNGLE](https://gungle-w-sc.netlify.app/)
 
 ## Demo
-![alt text](public/assets/pic.webp)
-![alt text](public/assets/pic-2.webp)
+![demo pic 01](public/assets/Pic.webp)
+![demo pic 02](public/assets/pic-2.webp)
 
 
 
