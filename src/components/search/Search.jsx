@@ -3,17 +3,13 @@ import {
   SearchInput,
   SearchContainer,
   SearchButton,
+  SearchLink,
   ButtonContainer,
   Logo,
 } from "./styles/Search.styled";
 import { useNavigate } from "react-router-dom";
 
-export default function Search({
-  searchTerm,
-  handleChange,
-  getResults,
-  setSearchTerm,
-}) {
+export default function Search({ searchTerm, handleChange, getResults }) {
   const navigate = useNavigate();
 
   const getSearch = (e) => {
@@ -33,7 +29,12 @@ export default function Search({
       />
       <ButtonContainer>
         <SearchButton type="submit">SEARCH</SearchButton>
-        <SearchButton type="submit">RANDOM</SearchButton>
+        <SearchLink
+          href="https://github.com/KXLAA/google-search-clone-sc"
+          target="_blank"
+        >
+          CODE
+        </SearchLink>
       </ButtonContainer>
     </SearchContainer>
   );

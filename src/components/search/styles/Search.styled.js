@@ -33,3 +33,12 @@ export const SearchButton = styled.button`
   border: none;
   padding: 1rem 3rem;
 `;
+
+export const SearchLink = styled.a`
+  cursor: pointer;
+  background: #242423;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 1rem 3rem;
+`;
